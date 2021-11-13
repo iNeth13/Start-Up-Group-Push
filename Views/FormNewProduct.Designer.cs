@@ -42,6 +42,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbxSupplier = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtProductAmount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbLabel
@@ -144,7 +146,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label3.Location = new System.Drawing.Point(25, 247);
+            this.label3.Location = new System.Drawing.Point(25, 245);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 21);
             this.label3.TabIndex = 0;
@@ -153,7 +155,7 @@
             // dtPickerExpirationDate
             // 
             this.dtPickerExpirationDate.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtPickerExpirationDate.Location = new System.Drawing.Point(25, 350);
+            this.dtPickerExpirationDate.Location = new System.Drawing.Point(25, 421);
             this.dtPickerExpirationDate.Name = "dtPickerExpirationDate";
             this.dtPickerExpirationDate.Size = new System.Drawing.Size(259, 23);
             this.dtPickerExpirationDate.TabIndex = 5;
@@ -163,7 +165,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label4.Location = new System.Drawing.Point(25, 326);
+            this.label4.Location = new System.Drawing.Point(25, 396);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 21);
             this.label4.TabIndex = 0;
@@ -173,7 +175,7 @@
             // 
             this.cbxSupplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbxSupplier.FormattingEnabled = true;
-            this.cbxSupplier.Location = new System.Drawing.Point(25, 423);
+            this.cbxSupplier.Location = new System.Drawing.Point(25, 494);
             this.cbxSupplier.Name = "cbxSupplier";
             this.cbxSupplier.Size = new System.Drawing.Size(259, 29);
             this.cbxSupplier.TabIndex = 6;
@@ -184,18 +186,40 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label5.Location = new System.Drawing.Point(25, 399);
+            this.label5.Location = new System.Drawing.Point(25, 468);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 21);
             this.label5.TabIndex = 0;
             this.label5.Text = "Supplier";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label6.Location = new System.Drawing.Point(25, 325);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 21);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Amount :";
+            // 
+            // txtProductAmount
+            // 
+            this.txtProductAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtProductAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtProductAmount.Location = new System.Drawing.Point(25, 350);
+            this.txtProductAmount.Name = "txtProductAmount";
+            this.txtProductAmount.Size = new System.Drawing.Size(259, 29);
+            this.txtProductAmount.TabIndex = 9;
             // 
             // FormNewProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
-            this.ClientSize = new System.Drawing.Size(411, 477);
+            this.ClientSize = new System.Drawing.Size(411, 544);
+            this.Controls.Add(this.txtProductAmount);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbxSupplier);
             this.Controls.Add(this.label4);
@@ -234,5 +258,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbxSupplier;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtProductAmount;
     }
 }

@@ -70,7 +70,7 @@ namespace Start_Up_Group.Views
             }
             catch (Exception err)
             {
-                throw err;
+                MessageBox.Show("Error Occurs, Please contact IT Team.");
             }
         }
 

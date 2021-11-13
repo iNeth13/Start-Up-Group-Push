@@ -66,7 +66,9 @@ namespace Start_Up_Group.Views
             {
                 new {Text="Beverage",Value="beverage"},
                 new {Text="Snack",Value="snack"},
-                new {Text="Beauty",Value="beauty"}
+                new {Text="Beauty",Value="beauty"},
+                new {Text="Stationary",Value="stationary"},
+                new {Text="Snack",Value="Snack"}
             };
             cbxCategory.DataSource = items;
 
@@ -99,10 +101,11 @@ namespace Start_Up_Group.Views
             var pBuyIn = double.Parse(txtBuyInPrice.Text.ToString());
             var pSellOut = double.Parse(txtSellOutPrice.Text.ToString());
             DateTime pExpiration = dtPickerExpirationDate.Value;
+            var pAmount = txtProductAmount.Text.ToString();
 
             if (IsCreate)
             {
-                var Result = this.productServices.CreateProduct(SupplierId,this.AdminUsername,pName,pBuyIn,pSellOut,this.Category,pExpiration);
+                var Result = this.productServices.CreateProduct(SupplierId,this.AdminUsername,pName,pBuyIn,pSellOut,this.Category,pExpiration,pAmount);
                 if (Result.ResponseSuccess() != null)
                 {
                     FormBranches formBranches = new FormBranches();
@@ -113,7 +116,7 @@ namespace Start_Up_Group.Views
             }
             else
             {
-                var Result = this.productServices.UpdateProduct(this.ProductId, this.AdminUsername, pName, pBuyIn, pSellOut, this.Category, pExpiration);
+                var Result = this.productServices.UpdateProduct(this.ProductId, this.AdminUsername, pName, pBuyIn, pSellOut, this.Category, pExpiration,pAmount);
                 if (Result.ResponseSuccess() != null)
                 {
                     FormBranches formBranches = new FormBranches();

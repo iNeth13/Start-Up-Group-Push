@@ -14,7 +14,7 @@ namespace Start_Up_Group
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql(connectionString: @"server=localhost;database=test_parking;uid=root;password=nethdb;",
+            optionsBuilder.UseMySql(connectionString: @"server=localhost;database=store-db;uid=root;password=nethdb;",
                 new MySqlServerVersion(new Version(10, 4, 17))
                 );
         }
@@ -24,5 +24,7 @@ namespace Start_Up_Group
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Supplier> Suppliers { get; set; } 
+        public DbSet<BranchProduct> BranchProducts { get; set; } 
+
     }
 }

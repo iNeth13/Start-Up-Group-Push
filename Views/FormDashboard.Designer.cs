@@ -299,7 +299,7 @@
             this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label9.Location = new System.Drawing.Point(204, 5);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 47);
+            this.label9.Size = new System.Drawing.Size(120, 47);
             this.label9.TabIndex = 4;
             this.label9.Text = "Overview";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

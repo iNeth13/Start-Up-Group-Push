@@ -195,7 +195,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(1055, 28);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Sale( In $)";
+            this.label8.Text = "Info";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormOverview

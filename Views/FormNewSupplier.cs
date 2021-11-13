@@ -67,6 +67,7 @@ namespace Start_Up_Group.Views
                 new {Text="Beauty",Value="beauty"},
                 new {Text="Food",Value="food"},
                 new {Text="Stationary",Value="stationary"},
+                new {Text="Snack",Value="snack"}
             };
 
             cbxType.DataSource = items;

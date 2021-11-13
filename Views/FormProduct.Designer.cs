@@ -37,6 +37,7 @@
             this.txtPBuyIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPSellOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtPAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPExpiration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
@@ -141,6 +142,12 @@
             this.txtPCategory.ReadOnly = true;
             this.txtPCategory.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // txtPAmount
+            // 
+            this.txtPAmount.DataPropertyName = "ProductAmount";
+            this.txtPAmount.HeaderText = "Amount";
+            this.txtPAmount.Name = "txtPAmount";
+            // 
             // txtPExpiration
             // 
             this.txtPExpiration.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -166,6 +173,7 @@
             this.txtPBuyIn,
             this.txtPSellOut,
             this.txtPCategory,
+            this.txtPAmount,
             this.txtPExpiration});
             this.dgvProduct.Location = new System.Drawing.Point(13, 58);
             this.dgvProduct.Name = "dgvProduct";
@@ -199,6 +207,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn txtPBuyIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtPSellOut;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtPCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txtPAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn txtPExpiration;
     }
 }

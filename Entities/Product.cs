@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Start_Up_Group.Entities
@@ -15,20 +16,24 @@ namespace Start_Up_Group.Entities
         public bool Is_Delete { get; set; }
         public string ProductCategory { get; set; }
         public DateTime ProductExpirationDate { get; set; }
+        public int ProductAmount { get; set; }
         //relationship with Supplier
         public int SupplierId { get; set; }
         public virtual Supplier Supplier { get; set; }
 
-        public static Product Create(string adminName,string pName,double pBuyIn_Price,double pSellOut_price,string pCategory,DateTime pExpirationDate,int sId)
+        public int BranchProductId { get; set; }
+        public BranchProduct BranchProduct { get; set; }
+
+        public static Product Create(string adminName,string pName,double pBuyIn_Price,double pSellOut_price,string pCategory,DateTime pExpirationDate,int sId,string pAmount)
         {
             
             Product product = new Product();
-            product.CreateInfo(adminName,pName,pBuyIn_Price,pSellOut_price,pCategory,pExpirationDate,sId);
+            product.CreateInfo(adminName,pName,pBuyIn_Price,pSellOut_price,pCategory,pExpirationDate,sId,pAmount);
 
             return product;
         }
 
-        public void CreateInfo(string adminName,string pName, double pBuyIn_Price, double pSellOut_price, string pCategory, DateTime pExpirationDate, int sId)
+        public void CreateInfo(string adminName,string pName, double pBuyIn_Price, double pSellOut_price, string pCategory, DateTime pExpirationDate, int sId,string pAmount)
         {
             base.CreateInfo(adminName);
             this.ProductName = pName;
@@ -37,10 +42,11 @@ namespace Start_Up_Group.Entities
             this.ProductCategory = pCategory;
             this.ProductExpirationDate = pExpirationDate;
             this.SupplierId = sId;
+            this.ProductAmount = Convert.ToInt32(pAmount);
             this.Is_Delete = false;
         }
 
-        public void UpdateInfo(string admin,string pName, double pBuyIn_Price, double pSellOut_price, string pCategory, DateTime pExpirationDate)
+        public void UpdateInfo(string admin,string pName, double pBuyIn_Price, double pSellOut_price, string pCategory, DateTime pExpirationDate,string pAmount)
         {
             base.UpdatedInfo(admin);
             this.ProductName = pName;
@@ -48,6 +54,7 @@ namespace Start_Up_Group.Entities
             this.ProductSellOut_Price = pSellOut_price;
             this.ProductCategory = pCategory;
             this.ProductExpirationDate = pExpirationDate;
+            this.ProductAmount = Convert.ToInt32(pAmount);
         }
 
         public new void DeleteInfo(string adminName)

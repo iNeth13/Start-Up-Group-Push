@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Start_Up_Group;
 
 namespace Start_Up_Group.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20211113155823_add-product-amount")]
+    partial class addproductamount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,9 +53,6 @@ namespace Start_Up_Group.Migrations
 
                     b.Property<string>("Address")
                         .HasColumnType("longtext");
-
-                    b.Property<int>("BranchProductId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Contact")
                         .HasColumnType("longtext");
@@ -96,28 +95,6 @@ namespace Start_Up_Group.Migrations
                     b.HasIndex("ManagerId");
 
                     b.ToTable("Branches");
-                });
-
-            modelBuilder.Entity("Start_Up_Group.Entities.BranchProduct", b =>
-                {
-                    b.Property<int>("BranchProductId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BranchId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("BranchProductId");
-
-                    b.HasIndex("BranchId");
-
-                    b.ToTable("BranchProducts");
                 });
 
             modelBuilder.Entity("Start_Up_Group.Entities.Manager", b =>
@@ -179,9 +156,6 @@ namespace Start_Up_Group.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("BranchProductId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime(6)");
 
@@ -225,8 +199,6 @@ namespace Start_Up_Group.Migrations
                         .HasColumnType("longtext");
 
                     b.HasKey("ProductId");
-
-                    b.HasIndex("BranchProductId");
 
                     b.HasIndex("SupplierId");
 
@@ -291,44 +263,15 @@ namespace Start_Up_Group.Migrations
                     b.Navigation("Manager");
                 });
 
-            modelBuilder.Entity("Start_Up_Group.Entities.BranchProduct", b =>
-                {
-                    b.HasOne("Start_Up_Group.Entities.Branch", "Branch")
-                        .WithMany("BranchProducts")
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Branch");
-                });
-
             modelBuilder.Entity("Start_Up_Group.Entities.Product", b =>
                 {
-                    b.HasOne("Start_Up_Group.Entities.BranchProduct", "BranchProduct")
-                        .WithMany("Products")
-                        .HasForeignKey("BranchProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Start_Up_Group.Entities.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("BranchProduct");
-
                     b.Navigation("Supplier");
-                });
-
-            modelBuilder.Entity("Start_Up_Group.Entities.Branch", b =>
-                {
-                    b.Navigation("BranchProducts");
-                });
-
-            modelBuilder.Entity("Start_Up_Group.Entities.BranchProduct", b =>
-                {
-                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Start_Up_Group.Entities.Manager", b =>

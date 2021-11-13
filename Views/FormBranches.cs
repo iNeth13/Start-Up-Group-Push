@@ -171,9 +171,16 @@ namespace Start_Up_Group
 
         private void dgvBranch_DoubleClick(object sender, EventArgs e)
         {
-            var BranchId = Convert.ToInt32(dgvBranch.CurrentRow.Cells["txtBBranchId"].Value.ToString());
-            FormBranchDetail formBranchDetail = new FormBranchDetail(BranchId);
-            formBranchDetail.Show();
+            try
+            {
+                var BranchId = Convert.ToInt32(dgvBranch.CurrentRow.Cells["txtBBranchId"].Value.ToString());
+                FormBranchDetail formBranchDetail = new FormBranchDetail(BranchId);
+                formBranchDetail.Show();
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show("Branch doesn't exist");
+            }
         }
     }
 }

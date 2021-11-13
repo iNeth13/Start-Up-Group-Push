@@ -16,6 +16,9 @@ namespace Start_Up_Group.Entities
         public int ManagerId { get; set; }
         public virtual Manager Manager { get; set; }
 
+        public int BranchProductId { get; set; }
+        public virtual ICollection<BranchProduct> BranchProducts { get; set; }
+
 
         //create new branch
         public static Branch CreateBranch(DateTime open_date,string name ,string address,string contact ,string adminName,int managerId)
