@@ -1,4 +1,5 @@
-﻿using Start_Up_Group.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Start_Up_Group.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace Start_Up_Group.Services
         public bool DeleteManager(int id,string admin);
         public Manager UpdateManager(int id, string name, string address, string contact, string email, DateTime hired_date, double salary, string admin);
         public List<Manager> GetAllManagers();
+        public Manager GetManagerDetailWithBranches(int id);
     }
 
     public class ManagerServies : IManagerServices
@@ -48,6 +50,16 @@ namespace Start_Up_Group.Services
             this.storeContext.SaveChanges();
 
             return true;
+        }
+
+        public Manager GetManagerDetailWithBranches(int id)
+        {
+            var current = storeContext.Managers.Where(m=>m.ManagerId == id).Where(m=>m.Is_deleted == false).Include(b=>b.Branches.Where(b=>b.Is_delete==false)).Single();
+            if(current == null)
+            {
+                throw new Exception();
+            }
+            return current;
         }
 
         public List<Manager> GetAllManagers()

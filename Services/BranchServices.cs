@@ -13,6 +13,7 @@ namespace Start_Up_Group.Services
         public Branch CreateNewBranch(string BranchName,string BranchAddress,string BranchContact,DateTime BranchOpenDate,string adminName,int managerId);
         public Branch UpdateBranch(int id,string branchName,string branchAddress,string branchContact,DateTime openSince,string adminName);
         public bool DeleteBranch(int id,string adminName);
+        public Branch GetBranchDetailWithManager(int id);
         public List<Branch> GetBranches();
     }
 
@@ -63,6 +64,16 @@ namespace Start_Up_Group.Services
             context.Entry(current).State = EntityState.Modified;
             context.SaveChanges();
             return true;
+        }
+
+        public Branch GetBranchDetailWithManager(int id)
+        {
+            Branch branch = context.Branches.Where(b=>b.BranchId == id).Where(b => b.Is_delete == false).Include("Manager").Single();
+            if (branch == null)
+            {
+                throw new Exception();
+            }
+            return branch;
         }
 
         public List<Branch> GetBranches()

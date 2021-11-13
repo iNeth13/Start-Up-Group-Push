@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
@@ -113,6 +114,15 @@ namespace Start_Up_Group
             }
         }
 
-       
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void btnDistribute_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FormDistribute(this.AdminUsername));
+            label9.Text = "Product Distribution";
+        }
     }
 }

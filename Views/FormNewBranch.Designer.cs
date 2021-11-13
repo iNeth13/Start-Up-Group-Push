@@ -173,7 +173,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(163, 23);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Manager In-charge : ";
+            this.label5.Text = "Open Date :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label5.Click += new System.EventHandler(this.label1_Click);
             // 

@@ -46,7 +46,6 @@ namespace Start_Up_Group
 
         private void FormBranches_Load(object sender, EventArgs e)
         {
-
             this.FetchAllBranches();
             if(BranchId != -1)
             {
@@ -158,6 +157,13 @@ namespace Start_Up_Group
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
           
+        }
+
+        private void dgvBranch_DoubleClick(object sender, EventArgs e)
+        {
+            var BranchId = Convert.ToInt32(dgvBranch.CurrentRow.Cells["txtBBranchId"].Value.ToString());
+            FormBranchDetail formBranchDetail = new FormBranchDetail(BranchId);
+            formBranchDetail.Show();
         }
     }
 }

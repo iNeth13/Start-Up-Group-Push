@@ -148,5 +148,12 @@ namespace Start_Up_Group.Views
                 return;
             }
         }
+
+        private void dgvManager_DoubleClick(object sender, EventArgs e)
+        {
+            var ManagerId = Convert.ToInt32(dgvManager.CurrentRow.Cells["txtMManagerId"].Value);
+            FormManagerDetail formManagerDetail = new FormManagerDetail(ManagerId);
+            formManagerDetail.Show();
+        }
     }
 }

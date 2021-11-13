@@ -197,14 +197,6 @@
             this.txtBOpenDate.Name = "txtBOpenDate";
             this.txtBOpenDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // FormBranches
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1077, 481);
-            // 
             // dgvBranch
             // 
             this.dgvBranch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -222,6 +214,15 @@
             this.dgvBranch.Text = "dataGridView1";
             this.dgvBranch.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBranch_CellContentClick);
             this.dgvBranch.Click += new System.EventHandler(this.dgvBranch_Click);
+            this.dgvBranch.DoubleClick += new System.EventHandler(this.dgvBranch_DoubleClick);
+            // 
+            // FormBranches
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(1077, 481);
             this.Controls.Add(this.dgvBranch);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

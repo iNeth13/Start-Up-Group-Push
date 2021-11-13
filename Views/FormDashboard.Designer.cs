@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDistribute = new System.Windows.Forms.Button();
+            this.btnProductTab = new System.Windows.Forms.Button();
             this.btnBranchManager = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -42,7 +44,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnProductTab = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +52,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnDistribute);
             this.panel1.Controls.Add(this.btnProductTab);
             this.panel1.Controls.Add(this.btnBranchManager);
             this.panel1.Controls.Add(this.btnSetting);
@@ -62,6 +64,36 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(171, 662);
             this.panel1.TabIndex = 0;
+            // 
+            // btnDistribute
+            // 
+            this.btnDistribute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDistribute.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDistribute.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnDistribute.Location = new System.Drawing.Point(-2, 260);
+            this.btnDistribute.Name = "btnDistribute";
+            this.btnDistribute.Size = new System.Drawing.Size(169, 44);
+            this.btnDistribute.TabIndex = 1;
+            this.btnDistribute.Text = "Distribute";
+            this.btnDistribute.UseVisualStyleBackColor = true;
+            this.btnDistribute.Click += new System.EventHandler(this.btnDistribute_Click);
+            // 
+            // btnProductTab
+            // 
+            this.btnProductTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
+            this.btnProductTab.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnProductTab.FlatAppearance.BorderSize = 0;
+            this.btnProductTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductTab.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnProductTab.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnProductTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductTab.Location = new System.Drawing.Point(-2, 211);
+            this.btnProductTab.Name = "btnProductTab";
+            this.btnProductTab.Size = new System.Drawing.Size(169, 43);
+            this.btnProductTab.TabIndex = 0;
+            this.btnProductTab.Text = "Products";
+            this.btnProductTab.UseVisualStyleBackColor = false;
+            this.btnProductTab.Click += new System.EventHandler(this.btnProductTab_Click);
             // 
             // btnBranchManager
             // 
@@ -176,12 +208,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1312, 62);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // lbTodayDate
             // 
             this.lbTodayDate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbTodayDate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbTodayDate.Location = new System.Drawing.Point(916, 19);
+            this.lbTodayDate.Location = new System.Drawing.Point(675, 21);
             this.lbTodayDate.Name = "lbTodayDate";
             this.lbTodayDate.Size = new System.Drawing.Size(131, 21);
             this.lbTodayDate.TabIndex = 7;
@@ -243,23 +276,6 @@
             this.panel3.TabIndex = 2;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
-            // btnProductTab
-            // 
-            this.btnProductTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
-            this.btnProductTab.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnProductTab.FlatAppearance.BorderSize = 0;
-            this.btnProductTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductTab.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnProductTab.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnProductTab.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductTab.Location = new System.Drawing.Point(-2, 211);
-            this.btnProductTab.Name = "btnProductTab";
-            this.btnProductTab.Size = new System.Drawing.Size(169, 43);
-            this.btnProductTab.TabIndex = 0;
-            this.btnProductTab.Text = "Products";
-            this.btnProductTab.UseVisualStyleBackColor = false;
-            this.btnProductTab.Click += new System.EventHandler(this.btnProductTab_Click);
-            // 
             // frmDaskboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -270,6 +286,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "frmDaskboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Start Up Group Backoffice";
             this.Load += new System.EventHandler(this.frmDaskboard_Load);
             this.panel1.ResumeLayout(false);
@@ -296,5 +313,6 @@
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnBranchManager;
         private System.Windows.Forms.Button btnProductTab;
+        private System.Windows.Forms.Button btnDistribute;
     }
 }

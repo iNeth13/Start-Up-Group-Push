@@ -233,6 +233,7 @@
             this.dgvManager.Text = "dataGridView1";
             this.dgvManager.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvManager_CellContentClick);
             this.dgvManager.Click += new System.EventHandler(this.dgvManager_Click);
+            this.dgvManager.DoubleClick += new System.EventHandler(this.dgvManager_DoubleClick);
             // 
             // FormManager
             // 
