@@ -11,7 +11,7 @@ namespace Start_Up_Group.Services
         public Supplier CreateSupplier(string admin, string sName, string sAddress, string sContact, string sType, DateTime sSince);
         public Supplier UpdateSupplier(int sId, string admin, string sName, string sType, string sContact, string sAddress, DateTime sSince);
         public bool DeleteSupplier(int sId, string admin);
-        public List<Supplier> GetAllSuppliers();
+        public List<Supplier> GetAllSuppliers(string searchValue);
     }
 
     public class SupplierServices : ISupplierServices
@@ -46,9 +46,9 @@ namespace Start_Up_Group.Services
             return true;
         }
 
-        public List<Supplier> GetAllSuppliers()
+        public List<Supplier> GetAllSuppliers(string searchValue)
         {
-            var suppliers = this.storeContext.Suppliers.Where(s => s.Is_Delete == false).ToList();
+            var suppliers = this.storeContext.Suppliers.Where(s=>s.Name.Contains(searchValue)).Where(s => s.Is_Delete == false).ToList();
             return suppliers;
         }
     }

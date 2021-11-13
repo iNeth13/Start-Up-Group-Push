@@ -23,13 +23,13 @@ namespace Start_Up_Group
 
         private void FetchTotalBranches()
         {
-            var result = this.branchServices.GetBranches().Count;
+            var result = this.branchServices.GetBranches("").Count;
             txtTotalBranch.Text = result.ToString();
         }
 
         private void FetchTotalManagers()
         {
-            var result = this.managerServices.GetAllManagers().Count;
+            var result = this.managerServices.GetAllManagers("").Count;
             txtTotalManagers.Text = result.ToString();
         }
 

@@ -38,6 +38,10 @@
             this.btnBranches = new System.Windows.Forms.Button();
             this.btnOverview = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnEntitySearch = new System.Windows.Forms.Button();
+            this.cbxEntity = new System.Windows.Forms.ComboBox();
+            this.txtSearchValue = new System.Windows.Forms.TextBox();
             this.lbTodayDate = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
@@ -46,6 +50,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -199,6 +204,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(57)))), ((int)(((byte)(75)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.lbTodayDate);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.lbUsername);
@@ -210,11 +216,53 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnEntitySearch);
+            this.panel4.Controls.Add(this.cbxEntity);
+            this.panel4.Controls.Add(this.txtSearchValue);
+            this.panel4.Location = new System.Drawing.Point(378, 8);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(358, 41);
+            this.panel4.TabIndex = 8;
+            // 
+            // btnEntitySearch
+            // 
+            this.btnEntitySearch.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEntitySearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntitySearch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEntitySearch.Location = new System.Drawing.Point(282, 9);
+            this.btnEntitySearch.Name = "btnEntitySearch";
+            this.btnEntitySearch.Size = new System.Drawing.Size(75, 23);
+            this.btnEntitySearch.TabIndex = 2;
+            this.btnEntitySearch.Text = "Search";
+            this.btnEntitySearch.UseVisualStyleBackColor = true;
+            this.btnEntitySearch.Click += new System.EventHandler(this.btnEntitySearch_Click);
+            // 
+            // cbxEntity
+            // 
+            this.cbxEntity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbxEntity.FormattingEnabled = true;
+            this.cbxEntity.Location = new System.Drawing.Point(0, 9);
+            this.cbxEntity.Name = "cbxEntity";
+            this.cbxEntity.Size = new System.Drawing.Size(82, 23);
+            this.cbxEntity.TabIndex = 1;
+            this.cbxEntity.SelectedIndexChanged += new System.EventHandler(this.cbxEntity_SelectedIndexChanged);
+            // 
+            // txtSearchValue
+            // 
+            this.txtSearchValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSearchValue.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearchValue.Location = new System.Drawing.Point(83, 8);
+            this.txtSearchValue.Name = "txtSearchValue";
+            this.txtSearchValue.Size = new System.Drawing.Size(192, 25);
+            this.txtSearchValue.TabIndex = 0;
+            // 
             // lbTodayDate
             // 
             this.lbTodayDate.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbTodayDate.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbTodayDate.Location = new System.Drawing.Point(675, 21);
+            this.lbTodayDate.Location = new System.Drawing.Point(899, 15);
             this.lbTodayDate.Name = "lbTodayDate";
             this.lbTodayDate.Size = new System.Drawing.Size(131, 21);
             this.lbTodayDate.TabIndex = 7;
@@ -270,7 +318,7 @@
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(178, 66);
+            this.panel3.Location = new System.Drawing.Point(177, 65);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1093, 520);
             this.panel3.TabIndex = 2;
@@ -292,6 +340,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -314,5 +364,9 @@
         private System.Windows.Forms.Button btnBranchManager;
         private System.Windows.Forms.Button btnProductTab;
         private System.Windows.Forms.Button btnDistribute;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.ComboBox cbxEntity;
+        private System.Windows.Forms.TextBox txtSearchValue;
+        private System.Windows.Forms.Button btnEntitySearch;
     }
 }

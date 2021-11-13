@@ -21,6 +21,7 @@ namespace Start_Up_Group
 
         private int BranchId = -1;
         private string AdminUsername;
+        private string SearchValue;
 
         public FormBranches()
         {
@@ -34,6 +35,15 @@ namespace Start_Up_Group
             InitializeComponent();
             this.AdminUsername = admin;
             this.branchServies = new BranchServices();
+            this.SearchValue = "";
+        }
+
+        public FormBranches(string admin, string searchValue)
+        {
+            InitializeComponent();
+            this.branchServies = new BranchServices();
+            this.SearchValue = searchValue;
+            this.AdminUsername = admin;
         }
 
         public void ShowSuccessDialog(string ResultMessage)
@@ -67,7 +77,7 @@ namespace Start_Up_Group
             {
                 dgvBranch.AutoGenerateColumns = false;
 
-                var response = this.branchServies.GetBranches();
+                var response = this.branchServies.GetBranches(this.SearchValue);
               
                 DataSet ds = new DataSet();
                 BindingSource bs = new BindingSource();

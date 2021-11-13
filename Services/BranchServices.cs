@@ -14,7 +14,7 @@ namespace Start_Up_Group.Services
         public Branch UpdateBranch(int id,string branchName,string branchAddress,string branchContact,DateTime openSince,string adminName);
         public bool DeleteBranch(int id,string adminName);
         public Branch GetBranchDetailWithManager(int id);
-        public List<Branch> GetBranches();
+        public List<Branch> GetBranches(string searchValue);
     }
 
     public class BranchServices : IBranchServices
@@ -76,13 +76,11 @@ namespace Start_Up_Group.Services
             return branch;
         }
 
-        public List<Branch> GetBranches()
+        public List<Branch> GetBranches(string searchValue)
         {
-            var branches = context.Branches.Where(b => b.Is_delete == false)
-                .OrderByDescending(b=>b.Created_at)
-                .ToList();
+            var result = this.context.Branches.Where(b => b.Name.Contains(searchValue)).Where(b=>b.Is_delete == false).ToList();
 
-            return branches;
+            return result;
         }
     }
 }

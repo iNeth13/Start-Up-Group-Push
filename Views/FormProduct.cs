@@ -1,4 +1,5 @@
-﻿using Start_Up_Group.Services;
+﻿using Start_Up_Group.Entities;
+using Start_Up_Group.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace Start_Up_Group.Views
         private string adminUsername;
         private IProductServices productServices;
         private int ProductId = -1;
+        private string SearchValue;
+
         public FormProduct()
         {
             InitializeComponent();
@@ -25,6 +28,22 @@ namespace Start_Up_Group.Views
             InitializeComponent();
             this.productServices = new ProductServices();
             this.adminUsername = admin;
+            this.SearchValue = "";
+        }
+
+        public FormProduct(string admin,string searchValue)
+        {
+            InitializeComponent();
+            this.productServices = new ProductServices();
+            this.SearchValue = searchValue;
+            this.adminUsername = admin;
+        }
+
+        public void SetSearchResult(List<Product> result)
+        {
+            dgvProduct.AutoGenerateColumns = false;
+            dgvProduct.Refresh();
+            dgvProduct.DataSource = result;
         }
 
         public void ShowSuccessDialog(string message)
@@ -41,7 +60,7 @@ namespace Start_Up_Group.Views
             {
                 dgvProduct.AutoGenerateColumns = false;
 
-                var response = this.productServices.GetAllProducts();
+                var response= this.productServices.GetAllProducts(this.SearchValue);
 
                 DataSet ds = new DataSet();
                 BindingSource bs = new BindingSource();

@@ -13,7 +13,7 @@ namespace Start_Up_Group.Services
         public Manager CreateNewManager(string email,double salary,DateTime hired_date,string name,string address,string contact, string adminName);
         public bool DeleteManager(int id,string admin);
         public Manager UpdateManager(int id, string name, string address, string contact, string email, DateTime hired_date, double salary, string admin);
-        public List<Manager> GetAllManagers();
+        public List<Manager> GetAllManagers(string searchValue);
         public Manager GetManagerDetailWithBranches(int id);
     }
 
@@ -62,12 +62,11 @@ namespace Start_Up_Group.Services
             return current;
         }
 
-        public List<Manager> GetAllManagers()
+        public List<Manager> GetAllManagers(string searchValue)
         {
-            var managers = this.storeContext.Managers.Where(m=>m.Is_deleted == false)
-                .OrderByDescending(m=>m.Created_at).ToList();
+            var result = this.storeContext.Managers.Where(m => m.Name.Contains(searchValue)).Where(m=>m.Is_deleted == false).ToList();
 
-            return managers;
+            return result;
         }
     }
 }

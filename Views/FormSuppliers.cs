@@ -14,6 +14,7 @@ namespace Start_Up_Group.Views
 
         private string adminUsername;
         private int SupplierId = -1;
+        private string SearchValue;
         private ISupplierServices supplierServices;
 
         public FormSuppliers()
@@ -27,6 +28,15 @@ namespace Start_Up_Group.Views
             InitializeComponent();
             this.adminUsername = admin;
             this.supplierServices = new SupplierServices();
+            this.SearchValue = "";
+        }
+
+        public FormSuppliers(string admin, string searchValue)
+        {
+            InitializeComponent();
+            this.supplierServices = new SupplierServices();
+            this.SearchValue = searchValue;
+            this.adminUsername = admin;
         }
 
         public void ShowSuccessDialog(string ResultMessage)
@@ -45,7 +55,7 @@ namespace Start_Up_Group.Views
             {
                 dgvSupplier.AutoGenerateColumns = false;
 
-                var response = this.supplierServices.GetAllSuppliers();
+                var response = this.supplierServices.GetAllSuppliers(this.SearchValue);
 
                 DataSet ds = new DataSet();
                 BindingSource bs = new BindingSource();

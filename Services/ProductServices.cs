@@ -1,6 +1,7 @@
 ﻿using Start_Up_Group.Entities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -9,10 +10,9 @@ namespace Start_Up_Group.Services
     public interface IProductServices
     {
         public Product CreateProduct(int sId, string adminName, string pName, double pBuyIn, double pSellOut, string pCategory, DateTime pExpirationDate);
-        public List<Product> GetAllProducts();
+        public List<Product> GetAllProducts(string searchValue);
         public Product UpdateProduct(int pId, string admin, string pName, double pBuyIn, double pSellOut, string pCategory, DateTime pExpirationDate);
         public bool DeleteProduct(int pId, string adminName);
-
     }
 
     public class ProductServices : IProductServices
@@ -37,11 +37,11 @@ namespace Start_Up_Group.Services
             return product;
         }
 
-        public List<Product> GetAllProducts()
+        public List<Product> GetAllProducts(string searchValue)
         {
-            var items = this.storeContext.Products.Where(p => p.Is_Delete == false).ToList();
+            var result = this.storeContext.Products.Where(p => p.ProductName.Contains(searchValue)).Where(p => p.Is_Delete == false).ToList();
 
-            return items;
+            return result;
         }
 
         public Product UpdateProduct(int pId,string admin,string pName,double pBuyIn,double pSellOut,string pCategory,DateTime pExpirationDate)

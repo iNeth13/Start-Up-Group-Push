@@ -70,7 +70,7 @@ namespace Start_Up_Group.Views
             };
             cbxCategory.DataSource = items;
 
-            var suppliers = this.supplierServices.GetAllSuppliers();
+            var suppliers = this.supplierServices.GetAllSuppliers("");
             cbxSupplier.DisplayMember = "Name";
             cbxSupplier.ValueMember = "SupplierId";
 

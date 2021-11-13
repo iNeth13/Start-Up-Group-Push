@@ -70,7 +70,7 @@ namespace Start_Up_Group.Views
 
         public void FetchAllManagers()
         {
-            var managers = this.managerServices.GetAllManagers();
+            var managers = this.managerServices.GetAllManagers("");
             //bind data to cbx
             cbxNewBranchManager.DisplayMember = "Name";
             cbxNewBranchManager.ValueMember = "ManagerId";

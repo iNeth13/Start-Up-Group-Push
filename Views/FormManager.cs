@@ -16,6 +16,7 @@ namespace Start_Up_Group.Views
 
         private int ManagerId = -1;
         private string adminUsername;
+        private string SearchValue;
 
         public FormManager()
         {
@@ -28,6 +29,7 @@ namespace Start_Up_Group.Views
             InitializeComponent();
             this.managerServices = new ManagerServies();
             this.adminUsername = admin;
+            this.SearchValue = "";
         }
 
         public void ShowSuccessDialog(string message)
@@ -35,6 +37,14 @@ namespace Start_Up_Group.Views
             MessageBox.Show(message);
             this.DisableButtons();
             this.FetchAllManagers();
+        }
+
+        public FormManager(string admin, string searchValue)
+        {
+            InitializeComponent();
+            this.managerServices = new ManagerServies();
+            this.SearchValue = searchValue;
+            this.adminUsername = admin;
         }
 
         //disable button after delete/update
@@ -66,7 +76,7 @@ namespace Start_Up_Group.Views
             {
                 dgvManager.AutoGenerateColumns = false;
 
-                var response = this.managerServices.GetAllManagers();
+                var response = this.managerServices.GetAllManagers(this.SearchValue);
 
                 DataSet ds = new DataSet();
                 BindingSource bs = new BindingSource();
