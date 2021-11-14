@@ -32,5 +32,10 @@ namespace Start_Up_Group.Entities
 
             return branchProduct;
         }
+
+        public void UpdateInfo(int amount)
+        {
+            this.Amount = this.Amount + amount;
+        }
     }
 }

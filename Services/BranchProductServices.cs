@@ -2,6 +2,7 @@
 using Start_Up_Group.Entities;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -29,13 +30,33 @@ namespace Start_Up_Group.Services
         
         public BranchProduct CreateOrUpdateBranchProduct(int pId , int bId , int amount)
         {
-            BranchProduct branchProduct = BranchProduct.Create(pId, bId, amount);
+            try
+            {
+                BranchProduct branchProduct = this.storeContext.BranchProducts.Where(b=>b.ProductId == pId).Single();
+                if(branchProduct == null)
+                {
+                    Debug.WriteLine("Create new");
+                    BranchProduct newBranchProduct = BranchProduct.Create(pId, bId, amount);
 
-            storeContext.BranchProducts.Add(branchProduct);
-            
-            this.storeContext.SaveChanges();
+                    storeContext.BranchProducts.Add(newBranchProduct);
 
-            return branchProduct;
+                    this.storeContext.SaveChanges();
+
+                    return newBranchProduct;
+                }
+                else
+                {
+                    int newAmount = branchProduct.Amount + amount;
+                    Debug.WriteLine("Update"+newAmount+ "Info" + branchProduct.Amount);
+                    branchProduct.UpdateInfo(amount);
+                    this.storeContext.SaveChanges();
+                    return branchProduct;
+                }
+            }
+            catch (Exception error)
+            {
+                throw new Exception();
+            }
         }
 
         public List<BranchProduct> GetBranchProducts(int bId)

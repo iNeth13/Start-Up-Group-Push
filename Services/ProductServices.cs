@@ -14,6 +14,7 @@ namespace Start_Up_Group.Services
         public Product UpdateProduct(int pId, string admin, string pName, double pBuyIn, double pSellOut, string pCategory, DateTime pExpirationDate,string pAmount);
         public bool DeleteProduct(int pId, string adminName);
         public List<Product> Test(List<int> pIds);
+        public Product UpdateProductStock(int pId, int amount);
     }
 
     public class ProductServices : IProductServices
@@ -48,6 +49,14 @@ namespace Start_Up_Group.Services
             var result = this.storeContext.Products.Where(p => p.ProductName.Contains(searchValue)).Where(p => p.Is_Delete == false).ToList();
 
             return result;
+        }
+
+        public Product UpdateProductStock(int pId,int amouont)
+        {
+            var current = this.storeContext.Products.Find(pId);
+            current.ProductAmount = current.ProductAmount - amouont;
+            this.storeContext.SaveChanges();
+            return current;
         }
 
         public Product UpdateProduct(int pId,string admin,string pName,double pBuyIn,double pSellOut,string pCategory,DateTime pExpirationDate,string pAmount)

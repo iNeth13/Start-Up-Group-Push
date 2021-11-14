@@ -211,7 +211,9 @@ namespace Start_Up_Group.Views
 
                         foreach (BranchProduct bp in branchProducts)
                         {
-                            this.branchProductServices.CreateOrUpdateBranchProduct(bp.ProductId,Convert.ToInt32(bValue.ToString()), bp.Amount);
+                            this.branchProductServices.CreateOrUpdateBranchProduct(bp.ProductId, Convert.ToInt32(bValue.ToString()), bp.Amount);
+                            //update ProductStock
+                            this.productServices.UpdateProductStock(bp.ProductId,bp.Amount);
                         }
                         MessageBox.Show("Successfully Imported Products a branch");
                     }

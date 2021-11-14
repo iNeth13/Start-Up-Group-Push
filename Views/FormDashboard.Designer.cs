@@ -221,7 +221,7 @@
             this.panel4.Controls.Add(this.btnEntitySearch);
             this.panel4.Controls.Add(this.cbxEntity);
             this.panel4.Controls.Add(this.txtSearchValue);
-            this.panel4.Location = new System.Drawing.Point(378, 8);
+            this.panel4.Location = new System.Drawing.Point(437, 8);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(358, 41);
             this.panel4.TabIndex = 8;
@@ -253,7 +253,7 @@
             // 
             this.txtSearchValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearchValue.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearchValue.Location = new System.Drawing.Point(83, 8);
+            this.txtSearchValue.Location = new System.Drawing.Point(84, 8);
             this.txtSearchValue.Name = "txtSearchValue";
             this.txtSearchValue.Size = new System.Drawing.Size(192, 25);
             this.txtSearchValue.TabIndex = 0;
