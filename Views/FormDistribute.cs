@@ -40,12 +40,14 @@ namespace Start_Up_Group.Views
             List<int> pIds = new List<int>();
             foreach (var branchProduct in branchProducts)
             {
+                Debug.WriteLine(branchProduct.Amount);
+                Debug.WriteLine(branchProduct.Product.ProductName);
                 pIds.Add(branchProduct.ProductId);
             }
             List<Product> products = this.productServices.Test(pIds);
             foreach(var product in products)
             {
-                Debug.WriteLine(product.ProductName);
+                
             }
         }
 
@@ -135,7 +137,6 @@ namespace Start_Up_Group.Views
             }
             else
             {
-                 Debug.WriteLine("Thisrun2");
                     this.txtFiP.Enabled = false;
                     this.txtFoP.Enabled = false;
                     this.txtFPAmount.Enabled = false;
@@ -210,7 +211,7 @@ namespace Start_Up_Group.Views
 
                         foreach (BranchProduct bp in branchProducts)
                         {
-                            this.branchProductServices.CreateNewBranchProduct(bp.ProductId,Convert.ToInt32(bValue.ToString()), bp.Amount);
+                            this.branchProductServices.CreateOrUpdateBranchProduct(bp.ProductId,Convert.ToInt32(bValue.ToString()), bp.Amount);
                         }
                         MessageBox.Show("Successfully Imported Products a branch");
                     }

@@ -104,16 +104,23 @@ namespace Start_Up_Group.Views
 
         private void dgvProduct_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(dgvProduct.CurrentRow.Cells["txtPId"].Value) != 0)
+            try
             {
-                if (dgvProduct.CurrentRow.Cells["txtPId"].Value != null)
+                if (Convert.ToInt32(dgvProduct.CurrentRow.Cells["txtPId"].Value) != 0)
                 {
-                    this.ProductId = Convert.ToInt32(dgvProduct.CurrentRow.Cells["txtPId"].Value);
-                    btnUpdateProduct.Enabled = true;
-                    btnDeleteProduct.Enabled = true;
+                    if (dgvProduct.CurrentRow.Cells["txtPId"].Value != null)
+                    {
+                        this.ProductId = Convert.ToInt32(dgvProduct.CurrentRow.Cells["txtPId"].Value);
+                        btnUpdateProduct.Enabled = true;
+                        btnDeleteProduct.Enabled = true;
+                    }
+                }
+                else
+                {
+                    return;
                 }
             }
-            else
+            catch (Exception err)
             {
                 return;
             }

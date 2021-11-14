@@ -113,9 +113,15 @@ namespace Start_Up_Group.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Since")
+                        .HasColumnType("datetime(6)");
+
                     b.HasKey("BranchProductId");
 
                     b.HasIndex("BranchId");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
 
                     b.ToTable("BranchProducts");
                 });
@@ -226,8 +232,6 @@ namespace Start_Up_Group.Migrations
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("BranchProductId");
-
                     b.HasIndex("SupplierId");
 
                     b.ToTable("Products");
@@ -299,24 +303,24 @@ namespace Start_Up_Group.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Start_Up_Group.Entities.Product", "Product")
+                        .WithOne("BranchProduct")
+                        .HasForeignKey("Start_Up_Group.Entities.BranchProduct", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Branch");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Start_Up_Group.Entities.Product", b =>
                 {
-                    b.HasOne("Start_Up_Group.Entities.BranchProduct", "BranchProduct")
-                        .WithMany("Products")
-                        .HasForeignKey("BranchProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Start_Up_Group.Entities.Supplier", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("BranchProduct");
 
                     b.Navigation("Supplier");
                 });
@@ -326,14 +330,14 @@ namespace Start_Up_Group.Migrations
                     b.Navigation("BranchProducts");
                 });
 
-            modelBuilder.Entity("Start_Up_Group.Entities.BranchProduct", b =>
-                {
-                    b.Navigation("Products");
-                });
-
             modelBuilder.Entity("Start_Up_Group.Entities.Manager", b =>
                 {
                     b.Navigation("Branches");
+                });
+
+            modelBuilder.Entity("Start_Up_Group.Entities.Product", b =>
+                {
+                    b.Navigation("BranchProduct");
                 });
 
             modelBuilder.Entity("Start_Up_Group.Entities.Supplier", b =>

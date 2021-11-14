@@ -68,12 +68,9 @@ namespace Start_Up_Group.Services
 
         public Branch GetBranchDetailWithManager(int id)
         {
-            Branch branch = context.Branches.Where(b=>b.BranchId == id).Where(b => b.Is_delete == false).Include("Manager").Single();
-            if (branch == null)
-            {
-                throw new Exception();
-            }
-            return branch;
+          
+                Branch branch = context.Branches.Where(b => b.BranchId == id).Where(b => b.Is_delete == false).Include("Manager").Single();
+                return branch;
         }
 
         public List<Branch> GetBranches(string searchValue)

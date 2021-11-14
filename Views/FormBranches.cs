@@ -125,7 +125,7 @@ namespace Start_Up_Group
 
         private void dgvBranch_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            return;
         }
 
         private void dgvBranch_Click(object sender, EventArgs e)

@@ -9,7 +9,7 @@ namespace Start_Up_Group.Services
 {
     public interface IBranchProduct
     {
-        public BranchProduct CreateNewBranchProduct(int pId, int bId, int amount);
+        public BranchProduct CreateOrUpdateBranchProduct(int pId, int bId, int amount);
 
         public List<BranchProduct> GetBranchProducts(int bId);
     }
@@ -27,12 +27,10 @@ namespace Start_Up_Group.Services
             
         }
         
-        public BranchProduct CreateNewBranchProduct(int pId , int bId , int amount)
+        public BranchProduct CreateOrUpdateBranchProduct(int pId , int bId , int amount)
         {
             BranchProduct branchProduct = BranchProduct.Create(pId, bId, amount);
-            var branch = this.storeContext.Branches.Find(bId);
-            var product = this.storeContext.Products.Find(pId);
-          
+
             storeContext.BranchProducts.Add(branchProduct);
             
             this.storeContext.SaveChanges();
@@ -42,7 +40,7 @@ namespace Start_Up_Group.Services
 
         public List<BranchProduct> GetBranchProducts(int bId)
         {
-            var branchProducts = this.storeContext.BranchProducts.Where(b => b.BranchId==bId).ToList();
+            var branchProducts = this.storeContext.BranchProducts.Where(b => b.BranchId==bId).Include(p=>p.Product).ToList();
             return branchProducts;
         }
 
