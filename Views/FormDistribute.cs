@@ -219,6 +219,7 @@ namespace Start_Up_Group.Views
                     }
                     catch (Exception err)
                     {
+                        Debug.WriteLine(err);
                         MessageBox.Show("Couldn't perform distribution function.");
                     }
                 }

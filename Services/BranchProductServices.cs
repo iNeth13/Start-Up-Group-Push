@@ -32,7 +32,7 @@ namespace Start_Up_Group.Services
         {
             try
             {
-                BranchProduct branchProduct = this.storeContext.BranchProducts.Where(b=>b.ProductId == pId).Single();
+                BranchProduct branchProduct = this.storeContext.BranchProducts.Where(b=>b.ProductId == pId).Where(b=>b.BranchId==bId).SingleOrDefault();
                 if(branchProduct == null)
                 {
                     Debug.WriteLine("Create new");
@@ -55,6 +55,7 @@ namespace Start_Up_Group.Services
             }
             catch (Exception error)
             {
+                Debug.WriteLine(error);
                 throw new Exception();
             }
         }
