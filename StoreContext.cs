@@ -14,7 +14,7 @@ namespace Start_Up_Group
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql(connectionString: @"server=localhost;database=store-db;uid=root;password=nethdb;",
+            optionsBuilder.UseMySql(connectionString: @"server=localhost;database=store-db;uid=root;password=thymysql;",
                 new MySqlServerVersion(new Version(10, 4, 17))
                 );
         }
